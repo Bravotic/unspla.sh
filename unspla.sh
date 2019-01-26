@@ -4,7 +4,7 @@
 
 
 # Settings
-RUN_AS_DAEMON=1                           # Run unspla.sh as a daemon if 1, if 0 unspla.sh will set the image then exit
+RUN_AS_DAEMON=0                           # Run unspla.sh as a daemon if 1, if 0 unspla.sh will set the image then exit
 BACKGROUND_RES="1920x1080"                # Set the size of unsplash images to pull
 PARAMETERS="backgrounds"                  # Set any other parametes to pull in images. add a comma between parameters ( nature, backgrounds)
 BACKGROUND_COMMAND="feh --bg-fill "       # The command that will be used to set the background, default is feh.  Image will be supplied after the command.
@@ -16,6 +16,8 @@ UNSPLASH_URL="https://source.unsplash.com/random/$BACKGROUND_RES/?$PARAMETERS"
 # Daemon Settings (only modify if you are using unspla.sh as a daemon)
 UPDATE_INTERVAL=86400                     # How long to wait before changing the picture (seconds)
 
+
+mkdir -p /tmp/unsplash
 
 if [ $RUN_AS_DAEMON = 1 ]
 then
